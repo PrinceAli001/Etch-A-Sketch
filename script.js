@@ -3,6 +3,7 @@ let container = document.querySelector('.container')
 let changeGrid = document.querySelector('.change-grid')
 let erase = document.querySelector('#erase')
 let hslLightness = 50
+let hOne = document.querySelector('h1')
 
 
 function randomNumber() {
@@ -13,7 +14,7 @@ function randomNumber() {
 
 for (let i = 0; i <= 1000; i++) {
     let div = document.createElement('div')
-    div.setAttribute('style',`height: 16px; width: 16px; border: 1px solid white;`)
+    div.setAttribute('style',`height: 16px; width: 16px; border: 1px solid white; background-color: white;`)
     div.classList.add('div-hover')
 
     div.addEventListener('click',()=> {
@@ -32,20 +33,20 @@ let gridChanger = document.querySelector('#grid-changer')
 gridChanger.addEventListener('click',()=> {
     let changingDiv = document.createElement('div')
     changingDiv.classList.add('changing-div')
-    changingDiv.setAttribute('style','border: 4px solid black; width: 210px; height: 120px; border-radius: 15px; margin: 10px auto; padding: 10px; background-color: blue; text-align: center;')
+    changingDiv.setAttribute('style','border: 2px solid black; background-color: white; box-shadow: 2px 2px 2px black; width: 210px; height: 120px; border-radius: 5px; margin: 10px auto; padding: 10px; text-align: center;')
 
     let changingDivPara = document.createElement('p')
     changingDivPara.textContent = `Choose from 12,16,24,32,48,64,96,192`;
-    changingDivPara.setAttribute('style','font-size: 14px; margin-bottom: 8px; color: white; text-align: center;')
+    changingDivPara.setAttribute('style','font-size: 14px; margin-bottom: 8px; text-align: center;')
 
     let input = document.createElement('input')
-    input.style.marginBottom = '10px';
+    input.setAttribute('style','margin-bottom: 10px; max-width: 200px;')
     input.setAttribute('type','text')
     input.setAttribute('name','number-input')
 
     let ok = document.createElement('button')
     ok.textContent = `Ok`
-    ok.setAttribute('style','font-size: 14px; padding: 2px 5px; border-radius: 5px;')
+    ok.setAttribute('style','font-size: 14px; padding: 2px 5px; border: 1px solid black; background-color: white; box-shadow: 2px 2px 2px black;')
     ok.addEventListener('click',()=> {
         let number = input.value
 
@@ -57,6 +58,7 @@ gridChanger.addEventListener('click',()=> {
           number == 64 ||
           number == 96 ||
           number == 192) {
+        body.removeChild(hOne)    
         
         if (body.hasChildNodes()) {
           body.removeChild(body.firstElementChild)
@@ -85,6 +87,7 @@ gridChanger.addEventListener('click',()=> {
        body.removeChild(changeGrid)
        body.removeChild(changingDiv)
        body.removeChild(erase)
+       body.appendChild(hOne)
        body.appendChild(containerOne)
        body.appendChild(changeGrid)
        body.appendChild(changingDiv)
@@ -99,7 +102,7 @@ gridChanger.addEventListener('click',()=> {
 
     let close = document.createElement('button')
     close.textContent = `Close`
-    close.setAttribute('style','font-size: 14px; padding: 2px 5px; margin-left: 10px; border-radius: 5px;')
+    close.setAttribute('style','font-size: 14px; padding: 2px 5px; margin-left: 10px; border: 1px solid black; background-color: white; box-shadow: 2px 2px 2px black;')
     close.addEventListener('click',()=> {
         body.removeChild(changingDiv)
     })
@@ -112,6 +115,7 @@ gridChanger.addEventListener('click',()=> {
     body.removeChild(erase)
     body.appendChild(changingDiv)
     body.appendChild(erase)
+
 
 })
 
