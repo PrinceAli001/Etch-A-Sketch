@@ -39,8 +39,11 @@ gridChanger.addEventListener('click',()=> {
     changingDivPara.textContent = `Choose from 12,16,24,32,48,64,96,192`;
     changingDivPara.setAttribute('style','font-size: 14px; margin-bottom: 8px; text-align: center;')
 
+    let inputDiv = document.createElement('div')
+    inputDiv.setAttribute('style',' height: 25px; width: 100px; margin: 0 auto 10px auto;')
+
     let input = document.createElement('input')
-    input.setAttribute('style','margin-bottom: 10px; max-width: 200px;')
+    input.setAttribute('style','width: 100%; height: 100%;')
     input.setAttribute('type','text')
     input.setAttribute('name','number-input')
 
@@ -107,9 +110,9 @@ gridChanger.addEventListener('click',()=> {
         body.removeChild(changingDiv)
     })
 
-
+    inputDiv.appendChild(input)
     changingDiv.appendChild(changingDivPara)
-    changingDiv.appendChild(input)
+    changingDiv.appendChild(inputDiv)
     changingDiv.appendChild(ok)
     changingDiv.appendChild(close)
     body.removeChild(erase)
